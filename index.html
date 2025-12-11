@@ -9,84 +9,8 @@
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg: #f7f5f2;        /* fondo general */
-      --mint: #d6efe8;      /* acento suave */
-      --cream: #fff8f2;     /* tarjetas */
-      --cacao: #6a4f43;     /* color principal (texto/acento) */
-      --accent: #b89976;    /* botones */
-      --muted: #8b7a70;     /* texto secundario */
-      --soft-shadow: 0 12px 30px rgba(104,84,74,0.08);
-    }
-
-    *{box-sizing:border-box}
-    body{margin:0; font-family:"Poppins",sans-serif; background:var(--bg); color:var(--cacao); -webkit-font-smoothing:antialiased}
-
-    /* Header */
-    header{background:linear-gradient(180deg,var(--cream),var(--mint)); padding:46px 20px; text-align:center; border-bottom:4px solid rgba(0,0,0,0.03); box-shadow:var(--soft-shadow)}
-    header h1{font-family:"Playfair Display", serif; font-size:2.8rem; margin:0; color:var(--cacao)}
-    header p{margin:8px auto 0; color:var(--muted); max-width:880px}
-    .promo{margin-top:10px; color:var(--cacao); font-weight:600}
-
-    /* Nav */
-    .menu{display:flex; gap:12px; justify-content:center; padding:18px 12px}
-    .menu button{background:transparent; border:1px solid transparent; padding:8px 12px; border-radius:10px; cursor:pointer; color:var(--cacao); font-weight:600}
-    .menu button:hover{transform:translateY(-3px); background:rgba(106,79,67,0.04)}
-
-    /* Layout */
-    .container{width:92%; max-width:1180px; margin:22px auto}
-    .card{background:var(--cream); border-radius:14px; padding:16px; box-shadow:var(--soft-shadow); border:1px solid rgba(0,0,0,0.03)}
-
-    /* Grid productos */
-    .products{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px}
-    .product-card{background:linear-gradient(180deg,#fff,#fff8f6); border-radius:12px; padding:12px; text-align:center; transition:transform .28s ease, box-shadow .28s ease; border:1px solid rgba(0,0,0,0.04)}
-    .product-card:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(95,70,60,0.08)}
-    .product-card img{width:100%; height:160px; object-fit:cover; border-radius:10px}
-    .product-title{font-family:"Playfair Display",serif; font-size:1.05rem; margin:10px 0 6px; color:var(--cacao)}
-    .product-desc{font-size:.92rem; color:var(--muted); margin-bottom:8px}
-    .product-price{font-weight:800; color:var(--accent)}
-
-    /* Buttons */
-    .btn{background:var(--accent); color:#fff; border:none; padding:10px 12px; border-radius:10px; cursor:pointer; font-weight:700}
-    .btn:hover{background:var(--cacao)}
-
-    /* Carrusel (opcional en galería) */
-    .carousel{position:relative; border-radius:14px; overflow:hidden}
-
-    /* Carrito lateral */
-    #cart{position:fixed; right:-420px; top:0; height:100%; width:380px; background:#fff; box-shadow:-18px 0 40px rgba(0,0,0,0.12); transition:right .36s ease; z-index:1500; display:flex; flex-direction:column}
-    #cart.open{right:0}
-    #cart header{padding:18px; border-bottom:1px solid #f0ece8; font-weight:700; display:flex; justify-content:space-between; align-items:center}
-    #cart .items{padding:14px; flex:1; overflow:auto}
-    .cart-item{display:flex; gap:10px; align-items:center; padding:8px 0; border-bottom:1px dashed #f2ece8}
-    .cart-item img{width:64px; height:64px; object-fit:cover; border-radius:8px}
-    .cart-item .meta{flex:1}
-    .cart-total{padding:12px 18px; border-top:1px solid #f0ece8; font-weight:800}
-    .cart-actions{display:flex; gap:10px; padding:12px}
-
-    /* FAB carrito */
-    #cart-btn{position:fixed; right:20px; bottom:22px; width:56px; height:56px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:20px; box-shadow:0 12px 30px rgba(0,0,0,0.15); cursor:pointer; z-index:1600}
-
-    /* CHAT */
-    #chat-btn{position:fixed; right:20px; bottom:92px; width:56px; height:56px; border-radius:50%; background:var(--mint); color:var(--cacao); display:flex; align-items:center; justify-content:center; font-size:20px; box-shadow:0 12px 30px rgba(0,0,0,0.12); cursor:pointer; z-index:1600}
-    #chat-window{position:fixed; right:20px; bottom:150px; width:320px; background:#fff; border-radius:12px; box-shadow:0 12px 36px rgba(0,0,0,0.18); overflow:hidden; display:none}
-    #chat-window header{background:linear-gradient(90deg,var(--cacao),var(--accent)); color:#fff; padding:10px}
-    #chat-window .body{padding:12px; display:flex; flex-direction:column; gap:8px; max-height:300px; overflow:auto; background:#fffaf6}
-    #chat-window .input{display:flex; gap:8px; padding:10px; border-top:1px solid #f2ebe6}
-    #chat-window .input input{flex:1; padding:8px; border-radius:8px; border:1px solid #efe6e1}
-
-    /* Responsive small */
-    @media(max-width:720px){
-      header h1{font-size:1.8rem}
-      #cart{width:100%; max-width:420px}
-      #chat-window{right:12px; left:12px; width:auto}
-      .product-card img{height:220px}
-    }
-
-    /* small helper */
-    .muted{color:var(--muted); font-size:.95rem}
-  </style>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -107,50 +31,46 @@
 
     <!-- HOME -->
     <section id="home" class="card" style="display:block">
-      <h2 style="font-family:'Playfair Display', serif; margin-top:0">Bienvenido a Cacao &amp; Crema</h2>
+      <h2 class="title">Bienvenido a Cacao &amp; Crema</h2>
       <p class="muted">Encuentra postres con el equilibrio perfecto entre cacao y cremas artesanales. Haz tu pedido, elige entrega o recojo y disfruta.</p>
     </section>
 
     <!-- GALLERY -->
     <section id="gallery" class="card" style="display:none; margin-top:18px">
-      <h2 style="font-family:'Playfair Display', serif">Galería</h2>
+      <h2 class="title">Galería</h2>
       <div class="carousel" style="margin-top:12px">
-        <!-- Simple grid de imágenes como mini-galería -->
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px">
-          <img src="img/gallery_cake1.jpg" alt="Torta de chocolate" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
-          <img src="img/gallery_mousse.jpg" alt="Mousse" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
-          <img src="img/gallery_profiteroles.jpg" alt="Profiteroles" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
-          <img src="img/gallery_cheesecake.jpg" alt="Cheesecake" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
+        <div class="gallery-grid">
+          <img src="img/gallery_cake1.jpg" alt="Torta de chocolate">
+          <img src="img/gallery_mousse.jpg" alt="Mousse">
+          <img src="img/gallery_profiteroles.jpg" alt="Profiteroles">
+          <img src="img/gallery_cheesecake.jpg" alt="Cheesecake">
         </div>
       </div>
     </section>
 
     <!-- STORE -->
     <section id="store" class="card" style="display:none; margin-top:18px">
-      <h2 style="font-family:'Playfair Display', serif">Tienda — Productos destacados</h2>
+      <h2 class="title">Tienda — Productos destacados</h2>
       <p class="muted">Precios accesibles y porciones pensadas para compartir o para un capricho personal.</p>
 
       <div class="products" style="margin-top:12px">
+
         <!-- Producto 1 -->
         <div class="product-card" data-id="mousse" data-price="12">
           <img src="img/mousse.jpg" alt="Mousse de cacao">
           <div class="product-title">Mousse de Cacao</div>
           <div class="product-desc">Vaso individual. Cacao 70% y crema batida.</div>
           <div class="product-price">S/ 12</div>
-          <div style="margin-top:8px">
-            <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-          </div>
+          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
         </div>
 
         <!-- Producto 2 -->
         <div class="product-card" data-id="cheesecake" data-price="28">
-          <img src="img/cheesecake.jpg" alt="Cheesecake de crema">
+          <img src="img/cheesecake.jpg" alt="Cheesecake">
           <div class="product-title">Cheesecake Cremoso</div>
           <div class="product-desc">Tamaño pequeño (6 porciones). Crema de queso suave.</div>
           <div class="product-price">S/ 28</div>
-          <div style="margin-top:8px">
-            <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-          </div>
+          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
         </div>
 
         <!-- Producto 3 -->
@@ -159,9 +79,7 @@
           <div class="product-title">Brownie Fudgy</div>
           <div class="product-desc">Unidad individual. Cacao intenso y textura húmeda.</div>
           <div class="product-price">S/ 9</div>
-          <div style="margin-top:8px">
-            <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-          </div>
+          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
         </div>
 
         <!-- Producto 4 -->
@@ -170,9 +88,7 @@
           <div class="product-title">Tiramisú Tradicional</div>
           <div class="product-desc">Torta para 6–8 porciones. Mascarpone y cacao.</div>
           <div class="product-price">S/ 30</div>
-          <div style="margin-top:8px">
-            <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-          </div>
+          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
         </div>
 
         <!-- Producto 5 -->
@@ -181,20 +97,16 @@
           <div class="product-title">Profiteroles (6 uds)</div>
           <div class="product-desc">Rellenos de crema y bañados en chocolate.</div>
           <div class="product-price">S/ 18</div>
-          <div style="margin-top:8px">
-            <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-          </div>
+          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
         </div>
 
-        <!-- Producto 6 (variedad) -->
+        <!-- Producto 6 -->
         <div class="product-card" data-id="tartalimon" data-price="16">
           <img src="img/tartalimon.jpg" alt="Mini tarta de limón">
           <div class="product-title">Mini Tarta de Limón</div>
           <div class="product-desc">Opción fresca y cítrica para balancear sabores.</div>
           <div class="product-price">S/ 16</div>
-          <div style="margin-top:8px">
-            <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-          </div>
+          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
         </div>
 
       </div>
@@ -202,7 +114,7 @@
 
     <!-- CONTACT -->
     <section id="contact" class="card" style="display:none; margin-top:18px">
-      <h2 style="font-family:'Playfair Display'">Contacto & Pedidos</h2>
+      <h2 class="title">Contacto & Pedidos</h2>
       <p class="muted">Pedidos y cotizaciones: <strong>cacao.crema@gmail.com</strong> · WhatsApp: <strong>+51 999 999 999</strong></p>
       <p class="muted">Horario: Lun–Sáb 09:00–18:00 · Envíos dentro de Lima Metropolitana</p>
     </section>
@@ -213,22 +125,22 @@
   <div id="cart" aria-hidden="true">
     <header>
       <div>Tu carrito</div>
-      <div><button onclick="toggleCart()" class="btn" style="padding:6px 10px; background:transparent; color:var(--cacao); border:1px solid rgba(0,0,0,0.06)">✕</button></div>
+      <div><button onclick="toggleCart()" class="btn close-btn">✕</button></div>
     </header>
     <div class="items" id="cart-items"></div>
-    <div class="cart-total" style="padding:12px 18px; font-weight:800">Total: S/ <span id="cart-total">0.00</span></div>
-    <div class="cart-actions" style="padding:12px 18px">
+    <div class="cart-total">Total: S/ <span id="cart-total">0.00</span></div>
+    <div class="cart-actions">
       <button class="btn" onclick="checkout()">Pagar (simulación)</button>
-      <button onclick="clearCart()" style="padding:10px 12px; border-radius:10px; border:1px solid rgba(0,0,0,0.06); background:transparent; cursor:pointer">Vaciar</button>
+      <button onclick="clearCart()" class="clear-btn">Vaciar</button>
     </div>
   </div>
 
   <!-- Floating buttons -->
-  <div id="cart-btn" title="Abrir carrito" onclick="toggleCart()">🛒</div>
-  <div id="chat-btn" title="Chat" onclick="toggleChat()">💬</div>
+  <div id="cart-btn" onclick="toggleCart()">🛒</div>
+  <div id="chat-btn" onclick="toggleChat()">💬</div>
 
   <!-- Chat pequeño -->
-  <div id="chat-window" role="dialog" aria-hidden="true">
+  <div id="chat-window" aria-hidden="true">
     <header>Chat — Cacao &amp; Crema</header>
     <div class="body" id="chat-body">
       <div class="msg bot">Hola 👋 Soy el asistente de Cacao &amp; Crema. Puedes preguntar por <em>precios</em>, <em>envío</em>, <em>pago</em> o <em>personalización</em>.</div>
@@ -239,144 +151,7 @@
     </div>
   </div>
 
-  <script>
-    /* -------- Secciones -------- */
-    function showSection(id){
-      document.querySelectorAll('main section').forEach(s=> s.style.display='none');
-      const el = document.getElementById(id);
-      if(el) el.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    /* -------- Carrito (localStorage) -------- */
-    const CART_KEY = 'cacao_crema_cart_v1';
-    let cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
-
-    function saveCart(){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }
-
-    function addToCartFromCard(btn){
-      const card = btn.closest('.product-card');
-      const id = card.getAttribute('data-id');
-      const price = parseFloat(card.getAttribute('data-price')) || 0;
-      const title = card.querySelector('.product-title')?.innerText || id;
-      const img = card.querySelector('img')?.src || '';
-      addToCart({id, title, price, img, qty:1});
-    }
-
-    function addToCart(item){
-      const existing = cart.find(i=> i.id === item.id);
-      if(existing) existing.qty += 1;
-      else cart.push({...item});
-      saveCart();
-      renderCart();
-      // abrir carrito
-      document.getElementById('cart').classList.add('open');
-      document.getElementById('cart').setAttribute('aria-hidden','false');
-    }
-
-    function renderCart(){
-      const container = document.getElementById('cart-items');
-      container.innerHTML = '';
-      let total = 0;
-      if(cart.length === 0){ container.innerHTML = '<div style="padding:18px; color:var(--muted)">Tu carrito está vacío</div>'; }
-      cart.forEach((it, idx)=>{
-        total += it.price * it.qty;
-        const div = document.createElement('div'); div.className = 'cart-item';
-        div.innerHTML = `
-          <img src="${it.img}" alt="${it.title}">
-          <div class="meta">
-            <div style="font-weight:700; color:var(--cacao)">${it.title}</div>
-            <div style="color:var(--muted)">S/ ${it.price.toFixed(2)} x ${it.qty}</div>
-          </div>
-          <div style="display:flex; flex-direction:column; gap:6px">
-            <button style="padding:6px; border-radius:6px; border:1px solid rgba(0,0,0,0.06); background:transparent; cursor:pointer" onclick="changeQty(${idx},1)">＋</button>
-            <button style="padding:6px; border-radius:6px; border:1px solid rgba(0,0,0,0.06); background:transparent; cursor:pointer" onclick="changeQty(${idx},-1)">−</button>
-          </div>
-        `;
-        container.appendChild(div);
-      });
-      document.getElementById('cart-total').innerText = total.toFixed(2);
-    }
-
-    function changeQty(index, delta){
-      if(!cart[index]) return;
-      cart[index].qty += delta;
-      if(cart[index].qty <= 0) cart.splice(index,1);
-      saveCart(); renderCart();
-    }
-
-    function clearCart(){ cart = []; saveCart(); renderCart(); }
-
-    function checkout(){
-      if(cart.length === 0){ alert('Tu carrito está vacío.'); return; }
-      let summary = 'Resumen de compra:\n\n';
-      let total = 0;
-      cart.forEach(i=>{ summary += `${i.title} x ${i.qty} — S/ ${(i.price*i.qty).toFixed(2)}\n`; total += i.price*i.qty });
-      summary += `\nTotal: S/ ${total.toFixed(2)}\n\nGracias por elegir Cacao & Crema. (Simulación)`;
-      alert(summary);
-      // simular pago: limpiar
-      clearCart();
-      document.getElementById('cart').classList.remove('open');
-    }
-
-    function toggleCart(){
-      const el = document.getElementById('cart');
-      el.classList.toggle('open');
-      const opened = el.classList.contains('open');
-      el.setAttribute('aria-hidden', opened ? 'false' : 'true');
-    }
-
-    // render inicial
-    renderCart();
-
-    /* -------- Chat simple -------- */
-    function toggleChat(){
-      const w = document.getElementById('chat-window');
-      w.style.display = w.style.display === 'block' ? 'none' : 'block';
-      w.setAttribute('aria-hidden', w.style.display === 'none');
-    }
-
-    function appendChat(text, who='bot'){
-      const body = document.getElementById('chat-body');
-      const d = document.createElement('div'); d.className = 'msg ' + (who==='bot' ? 'bot' : 'user'); d.innerHTML = text; body.appendChild(d); body.scrollTop = body.scrollHeight;
-    }
-
-    function sendChat(){
-      const input = document.getElementById('chat-input');
-      const txt = input.value.trim(); if(!txt) return; appendChat(txt,'user'); input.value='';
-      setTimeout(()=>{
-        const t = txt.toLowerCase();
-        if(t.includes('precio')||t.includes('precios')) appendChat('Los precios están en la sección Tienda. Ej: Brownie S/9, Mousse S/12, Cheesecake S/28.');
-        else if(t.includes('envio')||t.includes('entrega')) appendChat('Envíos dentro de Lima Metropolitana. Envío gratuito a partir de S/60.');
-        else if(t.includes('pago')||t.includes('transferencia')) appendChat('Aceptamos transferencia, Yape/Plin y pago al recojo (según acuerdo).');
-        else if(t.includes('personaliz')) appendChat('Hacemos tortas y postres personalizados. Indícanos fecha, tamaño y estilo para cotizar.');
-        else if(t.includes('hola')||t.includes('buenas')) appendChat('¡Hola! ¿En qué puedo ayudarte? Precios, envío, pago o personalización.');
-        else appendChat('Lo siento, soy un bot simple. Puedes preguntar por precios, envío, pago o escribir "hablar con humano" para contacto directo.');
-      },600);
-    }
-
-    /* -------- Ayuda: colocar imágenes -------- */
-    /*
-      Instrucciones para imágenes de productos:
-      - Crea una carpeta llamada `img` en la misma carpeta donde esté este index.html
-      - Nombres sugeridos (ya referenciados en el HTML):
-        img/mousse.jpg
-        img/cheesecake.jpg
-        img/brownie.jpg
-        img/tiramisu.jpg
-        img/profiteroles.jpg
-        img/tartalimon.jpg
-        img/gallery_cake1.jpg
-        img/gallery_mousse.jpg
-        img/gallery_profiteroles.jpg
-        img/gallery_cheesecake.jpg
-      - Si subes el proyecto a GitHub, puedes poner las imágenes en el repo en la misma ruta `img/`.
-      - Alternativamente usa URLs absolutas (ej: img src="https://i.imgur.com/abc.jpg") si no quieres subirlas localmente.
-    */
-
-    /* -------- Init: show home by default -------- */
-    showSection('home');
-  </script>
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
-
