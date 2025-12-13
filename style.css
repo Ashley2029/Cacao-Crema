@@ -390,16 +390,10 @@ body.dark #chat-window{
   color:#6b5a48;
 }
 
-/* TEXTO BANNER - MODO OSCURO (más oscuro, no crema clara) */
-body.dark .category-banner h1{
-  color:#88765f; /* cacao tostado */
-}
+/* TEXTO BANNER - MODO OSCURO */
+body.dark .category-banner h1{ color:#b39a7a; }
 
-body.dark .category-banner p{
-  color:#88765f;
-}
-
-
+body.dark .category-banner p{ color:#9c876b; }
 
 
 /* ---------- TIENDA ---------- */
