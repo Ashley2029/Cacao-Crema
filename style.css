@@ -353,3 +353,76 @@ body.dark #chat-window{
   background:#2a2521;
   color:var(--cacao);
 }
+
+/* ---------- HEADER ---------- */
+.top-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 24px;
+  background:var(--cream);
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.logo{ height:48px; }
+
+.search{
+  width:320px;
+  padding:10px 14px;
+  border-radius:25px;
+  border:1px solid var(--muted);
+}
+
+.header-right{
+  display:flex;
+  gap:16px;
+  font-size:1.4rem;
+  cursor:pointer;
+}
+
+/* ---------- BANNER ---------- */
+.category-banner{
+  background:#e9e4d6;
+  padding:40px 20px;
+  text-align:center;
+}
+
+/* ---------- TIENDA ---------- */
+.shop-layout{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:24px;
+  padding:30px;
+}
+
+.filters{
+  background:#f4efe9;
+  padding:16px;
+  border-radius:14px;
+}
+
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+}
+
+.product-card{
+  background:#fff;
+  border-radius:18px;
+  padding:14px;
+  text-align:center;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.product-card:hover{
+  transform:translateY(-6px);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:768px){
+  .shop-layout{ grid-template-columns:1fr; }
+  .filters{ display:none; }
+  .search{ width:180px; }
+}

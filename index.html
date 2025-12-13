@@ -13,12 +13,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="top-header">
+  <div class="header-left">
+    <img src="images/logo.png" alt="Cacao & Crema" class="logo">
+  </div>
 
-  <header>
-    <h1>Cacao &amp; Crema</h1>
-    <p>Pastelería artesanal — tortas, postres y bocados cremosos hechos con cacao fino y recetas caseras.</p>
-    <div class="promo muted">Envío gratuito en pedidos desde S/ 60 • Pedidos con 48–72 hrs de anticipación</div>
-  </header>
+  <div class="header-center">
+    <input type="text" placeholder="Buscar postres..." class="search">
+  </div>
+
+  <div class="header-right">
+    <span class="icon">👤</span>
+    <span class="icon" onclick="toggleCart()">🛒</span>
+  </div>
+</header>
+
+<section class="category-banner">
+  <h1>Tortas y Postres</h1>
+  <p>Hechos con cacao fino y cremas artesanales</p>
+</section>
+
 
   <nav class="menu" aria-label="Menú principal">
     <button onclick="showSection('home')">Inicio</button>
@@ -71,67 +85,82 @@
 
     <!-- STORE -->
     <section id="store" class="card" style="display:none; margin-top:18px">
-      <h2 class="title">Tienda — Productos destacados</h2>
-      <p class="muted">Precios accesibles y porciones pensadas para compartir o para un capricho personal.</p>
 
-      <div class="products" style="margin-top:12px">
+  <h2 class="title">Tienda — Tortas y Postres</h2>
+  <p class="muted">
+    Precios accesibles, cacao de calidad y cremas artesanales,
+    ideales para compartir o disfrutar en cualquier momento.
+  </p>
 
-        <!-- Producto 1 -->
-        <div class="product-card" data-id="mousse" data-price="12">
-          <img src="img/mousse.jpg" alt="Mousse de cacao">
-          <div class="product-title">Mousse de Cacao</div>
-          <div class="product-desc">Vaso individual. Cacao 70% y crema batida.</div>
-          <div class="product-price">S/ 12</div>
-          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-        </div>
+  <div class="shop-layout" style="margin-top:20px">
 
-        <!-- Producto 2 -->
-        <div class="product-card" data-id="cheesecake" data-price="28">
-          <img src="img/cheesecake.jpg" alt="Cheesecake">
-          <div class="product-title">Cheesecake Cremoso</div>
-          <div class="product-desc">Tamaño pequeño (6 porciones). Crema de queso suave.</div>
-          <div class="product-price">S/ 28</div>
-          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-        </div>
+    <!-- FILTROS -->
+    <aside class="filters">
+      <h3>Categorías</h3>
+      <ul>
+        <li>🍫 Postres con cacao</li>
+        <li>🍰 Tortas cremosas</li>
+        <li>☕ Clásicos</li>
+        <li>🍋 Opciones frescas</li>
+      </ul>
+    </aside>
 
-        <!-- Producto 3 -->
-        <div class="product-card" data-id="brownie" data-price="9">
-          <img src="img/brownie.jpg" alt="Brownie clásico">
-          <div class="product-title">Brownie Fudgy</div>
-          <div class="product-desc">Unidad individual. Cacao intenso y textura húmeda.</div>
-          <div class="product-price">S/ 9</div>
-          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-        </div>
+    <!-- PRODUCTOS -->
+    <div class="products-grid">
 
-        <!-- Producto 4 -->
-        <div class="product-card" data-id="tiramisu" data-price="30">
-          <img src="img/tiramisu.jpg" alt="Tiramisú">
-          <div class="product-title">Tiramisú Tradicional</div>
-          <div class="product-desc">Torta para 6–8 porciones. Mascarpone y cacao.</div>
-          <div class="product-price">S/ 30</div>
-          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-        </div>
-
-        <!-- Producto 5 -->
-        <div class="product-card" data-id="profiteroles" data-price="18">
-          <img src="img/profiteroles.jpg" alt="Profiteroles">
-          <div class="product-title">Profiteroles (6 uds)</div>
-          <div class="product-desc">Rellenos de crema y bañados en chocolate.</div>
-          <div class="product-price">S/ 18</div>
-          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-        </div>
-
-        <!-- Producto 6 -->
-        <div class="product-card" data-id="tartalimon" data-price="16">
-          <img src="img/tartalimon.jpg" alt="Mini tarta de limón">
-          <div class="product-title">Mini Tarta de Limón</div>
-          <div class="product-desc">Opción fresca y cítrica para balancear sabores.</div>
-          <div class="product-price">S/ 16</div>
-          <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-        </div>
-
+      <!-- Producto 1 -->
+      <div class="product-card" data-id="mousse" data-price="12">
+        <img src="img/mousse.jpg" alt="Mousse de cacao">
+        <h4>Mousse de Cacao</h4>
+        <p class="muted">Vaso individual. Cacao 70% y crema batida.</p>
+        <strong>S/ 12</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
       </div>
-    </section>
+
+      <!-- Producto 2 -->
+      <div class="product-card" data-id="cheesecake" data-price="28">
+        <img src="img/cheesecake.jpg" alt="Cheesecake cremoso">
+        <h4>Cheesecake Cremoso</h4>
+        <p class="muted">Tamaño pequeño (6 porciones).</p>
+        <strong>S/ 28</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="product-card" data-id="brownie" data-price="9">
+        <img src="img/brownie.jpg" alt="Brownie fudgy">
+        <h4>Brownie Fudgy</h4>
+        <p class="muted">Unidad individual. Textura húmeda.</p>
+        <strong>S/ 9</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="product-card" data-id="tiramisu" data-price="30">
+        <img src="img/tiramisu.jpg" alt="Tiramisú">
+        <h4>Tiramisú Tradicional</h4>
+        <p class="muted">Para 6–8 porciones. Mascarpone y cacao.</p>
+        <strong>S/ 30</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
+
+      <!-- Producto 5 -->
+      <div class="product-card" data-id="profiteroles" data-price="18">
+        <img src="img/profiteroles.jpg" alt="Profiteroles">
+        <h4>Profiteroles (6 uds)</h4>
+        <p class="muted">Rellenos de crema y chocolate.</p>
+        <strong>S/ 18</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
+
+      <!-- Producto 6 -->
+      <div class="product-card" data-id="tartalimon" data-price="16">
+        <img src="img/tartalimon.jpg" alt="Tarta de limón">
+        <h4>Mini Tarta de Limón</h4>
+        <p class="muted">Opción fresca y cítrica.</p>
+        <strong>S/ 16</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+
 
     <!-- CONTACT -->
     <section id="contact" class="card" style="display:none; margin-top:18px">
