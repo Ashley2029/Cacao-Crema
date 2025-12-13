@@ -154,38 +154,6 @@ function sendChat(){
 /* -------- Mostrar home al cargar -------- */
 showSection('home');
 
-/* -------- Reseñas -------- */
-const REVIEWS_KEY = 'cacao_crema_reviews';
-
-function loadReviews(){
-  const reviews = JSON.parse(localStorage.getItem(REVIEWS_KEY) || '[]');
-  const list = document.getElementById('review-list');
-  list.innerHTML = '';
-
-  reviews.forEach(r=>{
-    const div = document.createElement('div');
-    div.className = 'card';
-    div.innerHTML = `<strong>${r.name}</strong><p>${r.text}</p>`;
-    list.appendChild(div);
-  });
-}
-
-function addReview(){
-  const name = document.getElementById('review-name').value.trim();
-  const text = document.getElementById('review-text').value.trim();
-  if(!name || !text) return alert('Completa ambos campos');
-
-  const reviews = JSON.parse(localStorage.getItem(REVIEWS_KEY) || '[]');
-  reviews.push({name,text});
-  localStorage.setItem(REVIEWS_KEY, JSON.stringify(reviews));
-
-  document.getElementById('review-name').value='';
-  document.getElementById('review-text').value='';
-  loadReviews();
-}
-
-loadReviews();
-
 
 /* -------- Reseñas con estrellas -------- */
 const REVIEWS_KEY = 'cacao_crema_reviews';
@@ -242,6 +210,7 @@ function addReview(){
 }
 
 loadReviews();
+
 
 /* -------- Modo oscuro -------- */
 const themeBtn = document.getElementById('theme-toggle');
