@@ -392,11 +392,11 @@ body.dark #chat-window{
 
 /* TEXTO BANNER - MODO OSCURO (más oscuro, no crema clara) */
 body.dark .category-banner h1{
-  color:#c8b49c; /* cacao tostado */
+  color:#88765f; /* cacao tostado */
 }
 
 body.dark .category-banner p{
-  color:#b3a28b;
+  color:#88765f;
 }
 
 
