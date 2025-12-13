@@ -381,11 +381,24 @@ body.dark #chat-window{
 }
 
 /* ---------- BANNER ---------- */
-.category-banner{
-  background:#e9e4d6;
-  padding:40px 20px;
-  text-align:center;
+/* TEXTO BANNER - MODO CLARO */
+.category-banner h1{
+  color:#4a3a2a; /* cacao oscuro */
 }
+
+.category-banner p{
+  color:#6b5a48;
+}
+
+/* TEXTO BANNER - MODO OSCURO */
+body.dark .category-banner h1{
+  color:#f5e6d3; /* crema clara */
+}
+
+body.dark .category-banner p{
+  color:#e0d2c0;
+}
+
 
 /* ---------- TIENDA ---------- */
 .shop-layout{
