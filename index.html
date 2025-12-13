@@ -25,15 +25,36 @@
     <button onclick="showSection('gallery')">Galería</button>
     <button onclick="showSection('store')">Tienda</button>
     <button onclick="showSection('contact')">Contacto</button>
+    <button onclick="toggleTheme()" id="theme-toggle">🌙 / ☀️</button>
   </nav>
 
   <main class="container">
 
     <!-- HOME -->
-    <section id="home" class="card" style="display:block">
-      <h2 class="title">Bienvenido a Cacao &amp; Crema</h2>
-      <p class="muted">Encuentra postres con el equilibrio perfecto entre cacao y cremas artesanales. Haz tu pedido, elige entrega o recojo y disfruta.</p>
-    </section>
+    <section id="home" class="container">
+  <div class="card" style="text-align:center">
+    <img src="images/logo.png" alt="Cacao & Crema"
+         style="max-width:160px;margin-bottom:16px">
+
+    <h2 class="title">Bienvenido a Cacao & Crema</h2>
+
+    <p class="muted">
+      Somos una pastelería artesanal dedicada a crear postres únicos,
+      combinando cacao de alta calidad y cremas suaves elaboradas
+      con recetas propias.
+    </p>
+
+    <p>
+      <strong>Misión:</strong> Endulzar momentos especiales con postres
+      hechos con amor y dedicación.<br>
+      <strong>Visión:</strong> Ser una pastelería reconocida por su calidad
+      y creatividad.<br>
+      <strong>Objetivo:</strong> Ofrecer productos frescos, accesibles
+      y personalizados para cada cliente.
+    </p>
+  </div>
+</section>
+
 
     <!-- GALLERY -->
     <section id="gallery" class="card" style="display:none; margin-top:18px">
@@ -115,7 +136,7 @@
     <!-- CONTACT -->
     <section id="contact" class="card" style="display:none; margin-top:18px">
       <h2 class="title">Contacto & Pedidos</h2>
-      <p class="muted">Pedidos y cotizaciones: <strong>cacao.crema@gmail.com</strong> · WhatsApp: <strong>+51 999 999 999</strong></p>
+      <p class="muted">Pedidos y cotizaciones: <strong>cacao.crema@gmail.com</strong> · WhatsApp: <strong>+51 904 469 244</strong></p>
       <p class="muted">Horario: Lun–Sáb 09:00–18:00 · Envíos dentro de Lima Metropolitana</p>
     </section>
 
@@ -155,3 +176,27 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<!--Reseña-->
+<section id="reviews" class="container">
+  <h2 class="title">Reseñas de nuestros clientes</h2>
+
+  <div class="card">
+    <input id="review-name" placeholder="Tu nombre">
+
+    <!-- Estrellas -->
+    <div class="stars-input">
+      <span onclick="setRating(1)">★</span>
+      <span onclick="setRating(2)">★</span>
+      <span onclick="setRating(3)">★</span>
+      <span onclick="setRating(4)">★</span>
+      <span onclick="setRating(5)">★</span>
+    </div>
+
+    <textarea id="review-text" placeholder="Escribe tu opinión..."></textarea>
+
+    <button class="btn" onclick="addReview()">Enviar reseña</button>
+  </div>
+
+  <div id="review-list" class="container"></div>
+</section>

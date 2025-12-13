@@ -302,3 +302,54 @@ header p{margin:8px auto 0; color:var(--muted); max-width:880px}
 
 /* Helpers */
 .muted{color:var(--muted); font-size:.95rem}
+
+/* =====================
+   ESTRELLAS RESEÑAS
+   ===================== */
+
+.stars-input{
+  display:flex;
+  gap:8px;
+  font-size:1.6rem;
+  cursor:pointer;
+  margin:10px 0;
+}
+
+.stars-input span{
+  color:#ccc;
+  transition:0.2s;
+}
+
+.stars-input span.active{
+  color:#f5b301;
+}
+
+.review-stars{
+  color:#f5b301;
+  margin-bottom:6px;
+}
+
+/* =====================
+   MODO OSCURO
+   ===================== */
+
+body.dark{
+  --bg: #1e1b18;
+  --cream: #2a2521;
+  --mint: #3a332e;
+  --cacao: #f2e9e4;
+  --accent: #d1a373;
+  --muted: #c2b6ae;
+}
+
+body.dark header{
+  background: linear-gradient(180deg,#2a2521,#1e1b18);
+}
+
+body.dark .card,
+body.dark .product-card,
+body.dark #cart,
+body.dark #chat-window{
+  background:#2a2521;
+  color:var(--cacao);
+}
