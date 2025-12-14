@@ -467,3 +467,32 @@ body.dark .category-banner p{ color:#9c876b; }
     margin-top:20px;
   }
 }
+
+/* HOME layout */
+.home-layout{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:32px;
+  align-items:center;
+}
+
+/* Texto centrado */
+.home-text{
+  text-align:center;
+}
+
+/* Logo centrado */
+.home-text img{
+  display:block;
+  margin:0 auto 16px auto;
+}
+
+@media (max-width:768px){
+  .home-layout{
+    grid-template-columns:1fr;
+  }
+
+  .home-image img{
+    max-width:100%;
+  }
+}
