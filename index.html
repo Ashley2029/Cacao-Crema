@@ -12,6 +12,24 @@
   <!-- Estilos -->
   <link rel="stylesheet" href="style.css">
 </head>
+
+<div id="user-modal" class="user-modal" style="display:none">
+  <div class="card">
+    <h3>Iniciar sesión</h3>
+    <input id="user-email" placeholder="Correo">
+    <input id="user-pass" type="password" placeholder="Contraseña">
+    <button class="btn" onclick="login()">Ingresar</button>
+
+    <hr>
+
+    <h4>Registrarse</h4>
+    <input id="new-name" placeholder="Nombre">
+    <input id="new-email" placeholder="Correo">
+    <input id="new-pass" type="password" placeholder="Contraseña">
+    <button class="btn" onclick="register()">Crear cuenta</button>
+  </div>
+</div>
+
 <body>
   <header class="top-header">
   <div class="header-left">
@@ -23,13 +41,20 @@
   </div>
 
   <div class="header-right">
-    <span class="icon">👤</span>
+    <div class="user-area">
+  <span class="icon user-icon" onclick="toggleUser()">
+    👤 <span id="user-name"></span>
+    </span>
+    <button id="logout-btn" onclick="logout()" style="display:none">
+    Cerrar sesión
+      </button>
+    </div>
     <span class="icon" onclick="toggleCart()">🛒</span>
   </div>
 </header>
 
 <section class="category-banner">
-  <h1>Tortas y Postres</h1>
+  <h1>Cacao & Crema</h1>
   <p>Hechos con cacao fino y cremas artesanales</p>
 </section>
 
@@ -90,6 +115,10 @@
           <img src="img/gallery_mousse.jpg" alt="Mousse">
           <img src="img/gallery_profiteroles.jpg" alt="Profiteroles">
           <img src="img/gallery_cheesecake.jpg" alt="Cheesecake">
+          <img src="img/gallery_tiramisu.jpg">
+          <img src="img/gallery_brownie.jpg">
+          <img src="img/gallery_trufas.jpg">
+          <img src="img/gallery_torta_crema.jpg">
         </div>
       </div>
     </section>
@@ -107,20 +136,22 @@
 
     <!-- FILTROS -->
     <aside class="filters">
-      <h3>Categorías</h3>
-      <ul>
-        <li>🍫 Postres con cacao</li>
-        <li>🍰 Tortas cremosas</li>
-        <li>☕ Clásicos</li>
-        <li>🍋 Opciones frescas</li>
-      </ul>
-    </aside>
+  <h3>Categorías</h3>
+  <ul>
+    <li onclick="filterProducts('all')">🍽️ Todos</li>
+    <li onclick="filterProducts('cacao')">🍫 Postres con cacao</li>
+    <li onclick="filterProducts('cremosas')">🍰 Tortas cremosas</li>
+    <li onclick="filterProducts('clasicos')">☕ Clásicos</li>
+    <li onclick="filterProducts('frescos')">🍋 Opciones frescas</li>
+  </ul>
+</aside>
+
 
     <!-- PRODUCTOS -->
     <div class="products-grid">
 
       <!-- Producto 1 -->
-      <div class="product-card" data-id="mousse" data-price="12">
+      <div class="product-card" data-category="cacao" data-id="mousse" data-price="12">
         <img src="img/mousse.jpg" alt="Mousse de cacao">
         <h4>Mousse de Cacao</h4>
         <p class="muted">Vaso individual. Cacao 70% y crema batida.</p>
@@ -129,7 +160,7 @@
       </div>
 
       <!-- Producto 2 -->
-      <div class="product-card" data-id="cheesecake" data-price="28">
+      <div class="product-card" data-category="cremosas" data-id="cheesecake" data-price="28">
         <img src="img/cheesecake.jpg" alt="Cheesecake cremoso">
         <h4>Cheesecake Cremoso</h4>
         <p class="muted">Tamaño pequeño (6 porciones).</p>
@@ -138,7 +169,7 @@
       </div>
 
       <!-- Producto 3 -->
-      <div class="product-card" data-id="brownie" data-price="9">
+      <div class="product-card" data-category="clasicos" data-id="brownie" data-price="9">
         <img src="img/brownie.jpg" alt="Brownie fudgy">
         <h4>Brownie Fudgy</h4>
         <p class="muted">Unidad individual. Textura húmeda.</p>
@@ -147,7 +178,7 @@
       </div>
 
       <!-- Producto 4 -->
-      <div class="product-card" data-id="tiramisu" data-price="30">
+      <div class="product-card" data-category="cacao" data-id="tiramisu" data-price="30">
         <img src="img/tiramisu.jpg" alt="Tiramisú">
         <h4>Tiramisú Tradicional</h4>
         <p class="muted">Para 6–8 porciones. Mascarpone y cacao.</p>
@@ -156,7 +187,7 @@
       </div>
 
       <!-- Producto 5 -->
-      <div class="product-card" data-id="profiteroles" data-price="18">
+      <div class="product-card" data-category="cremosas" data-id="profiteroles" data-price="18">
         <img src="img/profiteroles.jpg" alt="Profiteroles">
         <h4>Profiteroles (6 uds)</h4>
         <p class="muted">Rellenos de crema y chocolate.</p>
@@ -165,13 +196,85 @@
       </div>
 
       <!-- Producto 6 -->
-      <div class="product-card" data-id="tartalimon" data-price="16">
+      <div class="product-card" data-category="frescos" data-id="tartalimon" data-price="16">
         <img src="img/tartalimon.jpg" alt="Tarta de limón">
         <h4>Mini Tarta de Limón</h4>
         <p class="muted">Opción fresca y cítrica.</p>
         <strong>S/ 16</strong>
         <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
-</div>
+      </div>
+
+      <!-- Producto 7 -->
+      <div class="product-card" data-category="cacao" data-price="14">
+        <img src="img/trufas.jpg">
+        <h4>Trufas de Cacao (6)</h4>
+        <p class="muted">Cacao intenso con relleno suave.</p>
+        <strong>S/ 14</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
+
+      <!-- Producto 8 -->
+      <div class="product-card" data-category="cacao" data-price="15">
+        <img src="img/chocotorta.jpg">
+        <h4>Chocotorta Artesanal</h4>
+        <p class="muted">Capas de galleta y crema.</p>
+        <strong>S/ 15</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
+
+      <!-- Producto 9 -->
+       <div class="product-card" data-category="cremosas" data-price="32">
+        <img src="img/torta-vainilla.jpg">
+        <h4>Torta de Vainilla & Crema</h4>
+        <p class="muted">Suave y esponjosa (6 porciones).</p>
+        <strong>S/ 32</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
+
+      <!-- Producto 10 -->
+      <div class="product-card" data-category="cremosas" data-price="34">
+        <img src="img/redvelvet.jpg">
+        <h4>Red Velvet</h4>
+        <p class="muted">Clásica con frosting cremoso.</p>
+        <strong>S/ 34</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
+
+      <!-- Producto 11 -->
+       <div class="product-card" data-category="clasicos" data-price="10">
+        <img src="img/alfajores.jpg">
+        <h4>Alfajores (3)</h4>
+        <p class="muted">Rellenos de manjar.</p>
+        <strong>S/ 10</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
+
+      <!-- Producto 12 -->
+      <div class="product-card" data-category="clasicos" data-price="11">
+        <img src="img/empanaditas.jpg">
+        <h4>Empanaditas Dulces</h4>
+        <p class="muted">Horneadas artesanalmente.</p>
+        <strong>S/ 11</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
+
+      <!-- Producto 13 -->
+       <div class="product-card" data-category="frescos" data-price="17">
+        <img src="img/cheesecake-limon.jpg">
+        <h4>Cheesecake de Limón</h4>
+        <p class="muted">Refrescante y suave.</p>
+        <strong>S/ 17</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
+
+      <!-- Producto 14 -->
+      <div class="product-card" data-category="frescos" data-price="14">
+        <img src="img/gelatina-frutas.jpg">
+        <h4>Gelatina de Frutas</h4>
+        <p class="muted">Ligera y natural.</p>
+        <strong>S/ 14</strong>
+        <button class="btn" onclick="addToCartFromCard(this)">Añadir</button>
+      </div>
 
     </div> <!-- CIERRA products-grid -->
   </div> <!-- CIERRA shop-layout -->

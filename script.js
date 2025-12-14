@@ -227,3 +227,79 @@ function toggleTheme(){
   );
 }
 
+function filterProducts(category){
+  const products = document.querySelectorAll('.product-card');
+
+  products.forEach(product => {
+    if(category === 'all' || product.dataset.category === category){
+      product.style.display = 'block';
+    } else {
+      product.style.display = 'none';
+    }
+  });
+}
+
+
+function toggleUser(){
+  const modal = document.getElementById('user-modal');
+  modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+}
+
+function register(){
+  const name = document.getElementById('new-name').value;
+  const email = document.getElementById('new-email').value;
+  const pass = document.getElementById('new-pass').value;
+
+  if(!name || !email || !pass){
+    alert('Completa todos los campos');
+    return;
+  }
+
+  const user = { name, pass };
+  localStorage.setItem(email, JSON.stringify(user));
+  alert('Registro exitoso 💛');
+}
+
+function login(){
+  const email = document.getElementById('user-email').value;
+  const pass = document.getElementById('user-pass').value;
+
+  const stored = localStorage.getItem(email);
+  if(!stored){
+    alert('Usuario no registrado');
+    return;
+  }
+
+  const user = JSON.parse(stored);
+  if(user.pass === pass){
+    localStorage.setItem('loggedUser', user.name);
+    showUserName();
+    toggleUser();
+  } else {
+    alert('Contraseña incorrecta');
+  }
+}
+
+function showUserName(){
+  const name = localStorage.getItem('loggedUser');
+  const nameSpan = document.getElementById('user-name');
+  const logoutBtn = document.getElementById('logout-btn');
+
+  if(name){
+    nameSpan.textContent = `Hola, ${name}`;
+    logoutBtn.style.display = 'inline-block';
+  }else{
+    nameSpan.textContent = '';
+    logoutBtn.style.display = 'none';
+  }
+}
+
+function logout(){
+  localStorage.removeItem('loggedUser');
+  showUserName();
+  alert('Sesión cerrada 👋');
+}
+
+document.addEventListener('DOMContentLoaded', showUserName);
+
+

@@ -549,3 +549,44 @@ body.dark .contact-info p{
     grid-template-columns:1fr;
   }
 }
+
+.user-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.user-modal .card{
+  max-width:360px;
+}
+
+.user-icon{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-weight:600;
+}
+
+.user-area{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+#logout-btn{
+  background:#6b4b2a;
+  color:#fff;
+  border:none;
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:0.85rem;
+}
+
+#logout-btn:hover{
+  opacity:0.85;
+}
