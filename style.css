@@ -384,7 +384,9 @@ body.dark #chat-window{
 .category-banner{
   padding:40px 20px;
   text-align:center;
+  background:#e9e4d6; /* fondo crema suave (modo claro) */
 }
+
 /* TEXTO BANNER - MODO CLARO */
 .category-banner h1{
   color:#4a3a2a; /* cacao oscuro */
