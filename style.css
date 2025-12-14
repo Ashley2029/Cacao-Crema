@@ -581,3 +581,7 @@ body.dark .contact-info p{
 body.dark .close-modal{
   color:#d2b48c;
 }
+
+.user-card{
+  position:relative; /* 🔥 CLAVE */
+}
