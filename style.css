@@ -515,3 +515,37 @@ body.dark .category-banner p{ color:#9c876b; }
   padding:10px;
   border-radius:16px;
 }
+
+/* ---------- CONTACTO ---------- */
+.contact-section{
+  max-width:800px;
+  margin:0 auto;
+}
+
+.contact-info{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.contact-info p{
+  background:#f4efe9;
+  padding:12px 14px;
+  border-radius:12px;
+  font-size:.95rem;
+  color:#4a3a2a;
+}
+
+/* MODO OSCURO */
+body.dark .contact-info p{
+  background:#2b241e;
+  color:#e6d7c3;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .contact-info{
+    grid-template-columns:1fr;
+  }
+}
