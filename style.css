@@ -550,52 +550,28 @@ body.dark .contact-info p{
   }
 }
 
+/* boton x */
 .user-modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.5);
+  background:rgba(0,0,0,.45);
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:999;
+  z-index:1000;
 }
 
-.user-modal .card{
-  max-width:360px;
-}
-
-.user-icon{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  font-weight:600;
-}
-
-.user-area{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-#logout-btn{
-  background:#6b4b2a;
-  color:#fff;
-  border:none;
-  padding:6px 10px;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:0.85rem;
-}
-
-#logout-btn:hover{
-  opacity:0.85;
+.user-card{
+  position:relative;
+  max-width:380px;
+  width:90%;
 }
 
 .close-modal{
   position:absolute;
-  top:12px;
+  top:10px;
   right:12px;
-  background:transparent;
+  background:none;
   border:none;
   font-size:1.4rem;
   cursor:pointer;
@@ -605,9 +581,3 @@ body.dark .contact-info p{
 body.dark .close-modal{
   color:#d2b48c;
 }
-
-.close-modal:hover{
-  transform:scale(1.1);
-}
-
-.modal{ position:relative; }
