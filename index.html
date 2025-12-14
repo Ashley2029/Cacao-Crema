@@ -40,6 +40,8 @@
     <button onclick="showSection('store')">Tienda</button>
     <button onclick="showSection('contact')">Contacto</button>
     <button onclick="toggleTheme()" id="theme-toggle">🌙 / ☀️</button>
+    <span onclick="toggle('contact')">Contacto</span>
+
   </nav>
 
   <main class="container">
@@ -175,7 +177,7 @@
 
     
     <!-- CONTACT -->
-<section id="contact" class="card contact-section" style="margin-top:18px">
+<section id="contact" class="card contact-section" style="display:none; margin-top:18px">
   <h2 class="title">Contacto & Pedidos</h2>
 
   <div class="contact-info">
@@ -192,7 +194,6 @@
     </a>
   </span>
 </p>
-
 
     <p>
       🕒 <strong>Horario:</strong>
