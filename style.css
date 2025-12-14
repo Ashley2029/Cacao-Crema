@@ -590,3 +590,24 @@ body.dark .contact-info p{
 #logout-btn:hover{
   opacity:0.85;
 }
+
+.close-modal{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:transparent;
+  border:none;
+  font-size:1.4rem;
+  cursor:pointer;
+  color:#6b4b2a;
+}
+
+body.dark .close-modal{
+  color:#d2b48c;
+}
+
+.close-modal:hover{
+  transform:scale(1.1);
+}
+
+.modal{ position:relative; }
