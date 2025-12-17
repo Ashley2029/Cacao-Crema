@@ -1,3 +1,15 @@
+let currentRating = 0;
+
+window.setRating = function(value){
+  currentRating = value;
+
+  document.querySelectorAll('.stars-input span').forEach((star, i) => {
+    star.style.color = i < value ? '#b07a3f' : '#cfc2b6';
+  });
+};
+
+console.log('⭐ setRating cargado correctamente');
+
 /* -------- Secciones -------- */
 function showSection(id){
   document.querySelectorAll('main section').forEach(s => s.style.display='none');
@@ -157,7 +169,7 @@ showSection('home');
 
 /* -------- Reseñas con estrellas -------- */
 const REVIEWS_KEY = 'cacao_crema_reviews';
-let currentRating = 0;
+
 
 function setRating(rating){
   currentRating = rating;
