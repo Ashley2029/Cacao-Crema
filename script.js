@@ -316,31 +316,34 @@ document.querySelectorAll('#stars-input span').forEach(star => {
 
 /* agregar reseña */
 function addReview(){
-  const name = document.getElementById('review-name').value || 'Anónimo';
-  const text = document.getElementById('review-text').value;
+  const name = document.getElementById('review-name').value.trim();
+  const text = document.getElementById('review-text').value.trim();
 
-  if(!text || selectedRating == 0){
-    alert('Escribe una reseña y selecciona estrellas ⭐');
+  if(!name || !text || currentRating === 0){
+    alert('Por favor completa tu nombre, reseña y calificación.');
     return;
   }
 
-  const review = {
+  const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+  reviews.push({
     name,
     text,
-    rating: selectedRating
-  };
+    rating: currentRating
+  });
 
-  const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-  reviews.push(review);
   localStorage.setItem('reviews', JSON.stringify(reviews));
 
   document.getElementById('review-name').value = '';
   document.getElementById('review-text').value = '';
-  selectedRating = 0;
-  document.querySelectorAll('#stars-input span').forEach(s => s.classList.remove('active'));
+  currentRating = 0;
+
+  document.querySelectorAll('.stars-input span')
+    .forEach(s => s.classList.remove('active'));
 
   renderReviews();
 }
+
 
 /* mostrar reseñas */
 function renderReviews(){
@@ -367,3 +370,36 @@ function renderReviews(){
 /* cargar reseñas al abrir */
 document.addEventListener('DOMContentLoaded', renderReviews);
 
+function setRating(value){
+  currentRating = value;
+
+  const stars = document.querySelectorAll('.stars-input span');
+  stars.forEach((star, index) => {
+    star.classList.toggle('active', index < value);
+  });
+}
+
+function renderReviews(){
+  const container = document.getElementById('review-list');
+  const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+  container.innerHTML = '';
+
+  reviews.forEach(r => {
+    const div = document.createElement('div');
+    div.className = 'card review-card';
+
+    div.innerHTML = `
+      <strong>${r.name}</strong>
+      <div class="stars">
+        ${'★'.repeat(r.rating)}
+        <span class="muted">${'★'.repeat(5 - r.rating)}</span>
+      </div>
+      <p>${r.text}</p>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', renderReviews);
