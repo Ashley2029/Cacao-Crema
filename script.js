@@ -302,4 +302,68 @@ function logout(){
 
 document.addEventListener('DOMContentLoaded', showUserName);
 
+let selectedRating = 0;
+
+/* seleccionar estrellas */
+document.querySelectorAll('#stars-input span').forEach(star => {
+  star.addEventListener('click', () => {
+    selectedRating = star.dataset.star;
+    document.querySelectorAll('#stars-input span').forEach(s => {
+      s.classList.toggle('active', s.dataset.star <= selectedRating);
+    });
+  });
+});
+
+/* agregar reseña */
+function addReview(){
+  const name = document.getElementById('review-name').value || 'Anónimo';
+  const text = document.getElementById('review-text').value;
+
+  if(!text || selectedRating == 0){
+    alert('Escribe una reseña y selecciona estrellas ⭐');
+    return;
+  }
+
+  const review = {
+    name,
+    text,
+    rating: selectedRating
+  };
+
+  const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+  reviews.push(review);
+  localStorage.setItem('reviews', JSON.stringify(reviews));
+
+  document.getElementById('review-name').value = '';
+  document.getElementById('review-text').value = '';
+  selectedRating = 0;
+  document.querySelectorAll('#stars-input span').forEach(s => s.classList.remove('active'));
+
+  renderReviews();
+}
+
+/* mostrar reseñas */
+function renderReviews(){
+  const container = document.getElementById('review-list');
+  if(!container) return;
+
+  container.innerHTML = '';
+  const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+  reviews.forEach(r => {
+    const div = document.createElement('div');
+    div.className = 'card review-card';
+
+    div.innerHTML = `
+      <strong>${r.name}</strong>
+      <div class="review-stars">${'★'.repeat(r.rating)}</div>
+      <p>${r.text}</p>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+/* cargar reseñas al abrir */
+document.addEventListener('DOMContentLoaded', renderReviews);
 

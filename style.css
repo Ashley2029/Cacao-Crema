@@ -585,3 +585,21 @@ body.dark .close-modal{
 .user-card{
   position:relative; /* 🔥 CLAVE */
 }
+
+.stars-input span{
+  font-size:1.6rem;
+  cursor:pointer;
+  color:#ccc;
+}
+
+.stars-input span.active{
+  color:#d4a017;
+}
+
+.review-card{
+  margin-top:14px;
+}
+
+.review-stars{
+  color:#d4a017;
+}
