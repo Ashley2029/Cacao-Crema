@@ -1,15 +1,3 @@
-let currentRating = 0;
-
-window.setRating = function(value){
-  currentRating = value;
-
-  document.querySelectorAll('.stars-input span').forEach((star, i) => {
-    star.style.color = i < value ? '#b07a3f' : '#cfc2b6';
-  });
-};
-
-console.log('⭐ setRating cargado correctamente');
-
 /* -------- Secciones -------- */
 function showSection(id){
   document.querySelectorAll('main section').forEach(s => s.style.display='none');
@@ -169,7 +157,7 @@ showSection('home');
 
 /* -------- Reseñas con estrellas -------- */
 const REVIEWS_KEY = 'cacao_crema_reviews';
-
+let currentRating = 0;
 
 function setRating(rating){
   currentRating = rating;
@@ -391,27 +379,3 @@ function setRating(value){
   });
 }
 
-function renderReviews(){
-  const container = document.getElementById('review-list');
-  const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-
-  container.innerHTML = '';
-
-  reviews.forEach(r => {
-    const div = document.createElement('div');
-    div.className = 'card review-card';
-
-    div.innerHTML = `
-      <strong>${r.name}</strong>
-      <div class="stars">
-        ${'★'.repeat(r.rating)}
-        <span class="muted">${'★'.repeat(5 - r.rating)}</span>
-      </div>
-      <p>${r.text}</p>
-    `;
-
-    container.appendChild(div);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', renderReviews);

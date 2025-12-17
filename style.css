@@ -604,17 +604,3 @@ body.dark .close-modal{
   color:#d4a017;
 }
 
-.stars-input span{
-  font-size:1.6rem;
-  cursor:pointer;
-  color:#cfc2b6;
-}
-
-.stars-input span.active{
-  color:#b07a3f; /* cacao */
-}
-
-.review-card .stars{
-  margin:6px 0;
-  color:#b07a3f;
-}
